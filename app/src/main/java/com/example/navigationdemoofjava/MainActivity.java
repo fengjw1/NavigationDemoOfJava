@@ -1,6 +1,10 @@
 package com.example.navigationdemoofjava;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 
 import android.net.Uri;
@@ -20,9 +24,14 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnFr
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-
+        NavController controller = new NavController(this);
+        controller.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
+            @Override
+            public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
+                Log.d("fengjw", "onDestinationChanged>>destination>>" + destination);
+            }
+        });
     }
-
 
     @Override
     public void onFragmentInteraction(Uri uri) {

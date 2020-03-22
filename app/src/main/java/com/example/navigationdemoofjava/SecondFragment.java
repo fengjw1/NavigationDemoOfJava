@@ -99,13 +99,17 @@ public class SecondFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3));
-        List<String> list = (List<String>) getArguments().get("datas");
+        List<String> list = new ArrayList<>();
+        try {
+            list = (List<String>) getArguments().get("datas");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         if (list != null && list.size() > 0){
             Log.d("fengjw", "list size = " + list.size());
             MyBaseAdapter adapter = new MyBaseAdapter(R.layout.item_layout, BaseData.getDatas());
             recyclerView.setAdapter(adapter);
         }
-
 
     }
 
