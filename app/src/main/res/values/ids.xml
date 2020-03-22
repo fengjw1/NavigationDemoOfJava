@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="btn_fragment2" type="id" />
+    <item name="btn_fragment1" type="id" />
+    <item name="et_main_fragment" type="id" />
+    <item name="tv_first_fragment" type="id" />
+</resources>

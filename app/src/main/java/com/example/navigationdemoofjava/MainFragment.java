@@ -11,9 +11,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import com.example.navigationdemoofjava.base.BaseFragment;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -37,6 +39,9 @@ public class MainFragment extends BaseFragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    @BindView(R.id.et_main_fragment)
+    EditText mainEt;
 
     public MainFragment() {
         // Required empty public constructor
@@ -96,12 +101,18 @@ public class MainFragment extends BaseFragment {
 
     @OnClick({R.id.btn_fragment1, R.id.btn_fragment2})
     public void onClickFragment(View v){
+        String etStr = mainEt.getText().toString();
+        if (etStr == null || etStr.equals("")){
+            etStr = "未输入任何数据";
+        }
+        Bundle bundle = new Bundle();
+        bundle.putString("etStr", etStr);
         if (v.getId() == R.id.btn_fragment1){
             Log.d("fengjw", "MainFragment>>onClickFragment>>1");
-            Navigation.findNavController(v).navigate(R.id.action_mainFragment_to_firstFragment);
+            Navigation.findNavController(v).navigate(R.id.action_mainFragment_to_firstFragment, bundle);//通过action跳转
         }else {
-            Log.d("fengjw", "MainFragment>>onClickFragment>>1");
-            Navigation.findNavController(v).navigate(R.id.action_mainFragment_to_secondFragment2);
+            Log.d("fengjw", "MainFragment>>onClickFragment>>2");
+            Navigation.findNavController(v).navigate(R.id.secondFragment, bundle);//通过id跳转
         }
     }
 
