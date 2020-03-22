@@ -4,4 +4,6 @@
     <item name="btn_fragment1" type="id" />
     <item name="et_main_fragment" type="id" />
     <item name="tv_first_fragment" type="id" />
+    <item name="rv_first_fragment" type="id" />
+    <item name="tv_item" type="id" />
 </resources>

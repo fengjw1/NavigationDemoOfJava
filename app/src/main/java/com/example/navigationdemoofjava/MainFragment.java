@@ -14,9 +14,12 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 import com.example.navigationdemoofjava.base.BaseFragment;
+import com.example.navigationdemoofjava.utils.BaseData;
+
+import java.io.Serializable;
+import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
@@ -112,7 +115,9 @@ public class MainFragment extends BaseFragment {
             Navigation.findNavController(v).navigate(R.id.action_mainFragment_to_firstFragment, bundle);//通过action跳转
         }else {
             Log.d("fengjw", "MainFragment>>onClickFragment>>2");
+            bundle.putSerializable("datas", (Serializable) BaseData.getDatas());
             Navigation.findNavController(v).navigate(R.id.secondFragment, bundle);//通过id跳转
+
         }
     }
 

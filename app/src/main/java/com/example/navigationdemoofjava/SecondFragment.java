@@ -1,16 +1,34 @@
 package com.example.navigationdemoofjava;
 
 import android.content.Context;
+import android.database.DataSetObserver;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 
+import com.example.navigationdemoofjava.adapter.MyBaseAdapter;
 import com.example.navigationdemoofjava.base.BaseFragment;
+import com.example.navigationdemoofjava.utils.BaseData;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import butterknife.BindView;
 
 
 /**
@@ -32,6 +50,11 @@ public class SecondFragment extends BaseFragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    @BindView(R.id.rv_first_fragment)
+    RecyclerView recyclerView;
+
+    public List<String> mList;
 
     public SecondFragment() {
         // Required empty public constructor
@@ -69,6 +92,21 @@ public class SecondFragment extends BaseFragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_second, container, false);
+    }
+
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3));
+        List<String> list = (List<String>) getArguments().get("datas");
+        if (list != null && list.size() > 0){
+            Log.d("fengjw", "list size = " + list.size());
+            MyBaseAdapter adapter = new MyBaseAdapter(R.layout.item_layout, BaseData.getDatas());
+            recyclerView.setAdapter(adapter);
+        }
+
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event

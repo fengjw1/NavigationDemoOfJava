@@ -7,6 +7,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.navigationdemoofjava.utils.BaseData;
+
+import java.util.List;
+
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements MainFragment.OnFragmentInteractionListener {

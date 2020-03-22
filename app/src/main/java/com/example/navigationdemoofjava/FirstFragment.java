@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,6 +17,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.navigationdemoofjava.base.BaseFragment;
+import com.example.navigationdemoofjava.utils.BaseData;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -90,6 +94,7 @@ public class FirstFragment extends BaseFragment {
         if (etStr != null && !etStr.equals("")){
             firstTv.setText(etStr);
         }
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -102,6 +107,7 @@ public class FirstFragment extends BaseFragment {
     @OnClick(R.id.btn_fragment1)
     public void onClickFragment(){
         Navigation.findNavController(getView()).navigate(R.id.action_firstFragment_to_secondFragment);
+
     }
 
     @Override
