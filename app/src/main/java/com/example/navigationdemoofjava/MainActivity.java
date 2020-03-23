@@ -24,13 +24,13 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnFr
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        NavController controller = new NavController(this);
-        controller.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
-            @Override
-            public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
-                Log.d("fengjw", "onDestinationChanged>>destination>>" + destination);
-            }
-        });
+//        NavController controller = new NavController(this);
+//        controller.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
+//            @Override
+//            public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
+//                Log.d("fengjw", "onDestinationChanged>>destination>>" + destination);
+//            }
+//        });
     }
 
     @Override

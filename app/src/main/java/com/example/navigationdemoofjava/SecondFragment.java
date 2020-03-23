@@ -8,6 +8,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -29,6 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 
 /**
@@ -99,18 +101,22 @@ public class SecondFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3));
-        List<String> list = new ArrayList<>();
         try {
-            list = (List<String>) getArguments().get("datas");
+            Bundle bundle = getArguments();
+            if (bundle != null){
+                List<String> list = (List<String>) bundle.get("datas");
+                MyBaseAdapter adapter = new MyBaseAdapter(R.layout.item_layout, list);
+                recyclerView.setAdapter(adapter);
+            }
         }catch (Exception e){
             e.printStackTrace();
         }
-        if (list != null && list.size() > 0){
-            Log.d("fengjw", "list size = " + list.size());
-            MyBaseAdapter adapter = new MyBaseAdapter(R.layout.item_layout, BaseData.getDatas());
-            recyclerView.setAdapter(adapter);
-        }
 
+    }
+
+    @OnClick(R.id.btn_fragment2)
+    public void onClickFragment(){
+        Navigation.findNavController(getView()).navigate(R.id.action_secondFragment_to_mainFragment);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
