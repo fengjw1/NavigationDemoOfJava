@@ -96,25 +96,7 @@ public class MainFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        NavController navController = Navigation.findNavController(getView());
-        navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
-            @Override
-            public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
-                Log.d("fengjw", "MainFragment>>navController>>onDestinationChanged>>destination>>" + destination.getLabel());
-                if (destination.getId() == R.id.secondFragment){
-                    Log.d("fengjw", "当前在second Fragment！");
-                    AppCompatActivity activity = (AppCompatActivity) getActivity();
-                    if (activity != null) {
-                        activity.getSupportActionBar().hide();//隐藏actionBar
-                    }
-                }else {
-                    AppCompatActivity activity = (AppCompatActivity) getActivity();
-                    if (activity != null) {
-                        activity.getSupportActionBar().show();//隐藏actionBar
-                    }
-                }
-            }
-        });
+
 
     }
 

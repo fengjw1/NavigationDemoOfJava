@@ -27,13 +27,19 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnFr
 
         //getSupportActionBar().hide();//关闭顶部的actionbar
 
-//        NavController controller = new NavController(this);
-//        controller.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
-//            @Override
-//            public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
-//                Log.d("fengjw", "onDestinationChanged>>destination>>" + destination);
-//            }
-//        });
+        NavController navController = Navigation.findNavController(this, R.id.fragment);
+        navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
+            @Override
+            public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
+                Log.d("fengjw", "MainFragment>>navController>>onDestinationChanged>>destination>>" + destination.getLabel());
+                if (destination.getId() == R.id.secondFragment){
+                    Log.d("fengjw", "当前在second Fragment！");
+                    getSupportActionBar().hide();
+                }else {
+                    getSupportActionBar().show();
+                }
+            }
+        });
     }
 
     @Override
