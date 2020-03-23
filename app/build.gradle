@@ -43,4 +43,5 @@ dependencies {
     implementation deps.base_recyclerview
     implementation deps.support.recyclerview
     implementation deps.support.cardview
+
 }

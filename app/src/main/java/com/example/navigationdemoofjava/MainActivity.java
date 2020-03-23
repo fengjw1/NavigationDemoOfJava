@@ -24,6 +24,9 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnFr
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        //getSupportActionBar().hide();//关闭顶部的actionbar
+
 //        NavController controller = new NavController(this);
 //        controller.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
 //            @Override

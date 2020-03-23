@@ -7,6 +7,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -95,6 +97,9 @@ public class FirstFragment extends BaseFragment {
             firstTv.setText(etStr);
         }
 
+
+
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -106,6 +111,7 @@ public class FirstFragment extends BaseFragment {
 
     @OnClick(R.id.btn_fragment1)
     public void onClickFragment(){
+
         Navigation.findNavController(getView()).navigate(R.id.action_firstFragment_to_secondFragment);
 
     }
