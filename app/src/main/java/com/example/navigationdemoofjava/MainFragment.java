@@ -128,7 +128,7 @@ public class MainFragment extends BaseFragment {
         bundle.putString("etStr", etStr);
         if (v.getId() == R.id.btn_fragment1){
             Log.d("fengjw", "MainFragment>>onClickFragment>>1");
-            Navigation.findNavController(v).navigate(R.id.action_mainFragment_to_firstFragment, bundle);//通过action跳转
+//            Navigation.findNavController(v).navigate(R.id.action_mainFragment_to_firstFragment, bundle);//通过action跳转
         }else {
             Log.d("fengjw", "MainFragment>>onClickFragment>>2");
             bundle.putSerializable("datas", (Serializable) BaseData.getDatas());

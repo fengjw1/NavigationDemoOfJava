@@ -91,14 +91,11 @@ public class FirstFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {//onCreateView之后触发
         super.onViewCreated(view, savedInstanceState);
-        String etStr = getArguments().getString("etStr");
-        Log.d("fengjw", "etStr>>" + etStr);
-        if (etStr != null && !etStr.equals("")){
-            firstTv.setText(etStr);
-        }
-
-
-
+//        String etStr = getArguments().getString("etStr");
+//        Log.d("fengjw", "etStr>>" + etStr);
+//        if (etStr != null && !etStr.equals("")){
+//            firstTv.setText(etStr);
+//        }
 
     }
 
@@ -112,7 +109,7 @@ public class FirstFragment extends BaseFragment {
     @OnClick(R.id.btn_fragment1)
     public void onClickFragment(){
 
-        Navigation.findNavController(getView()).navigate(R.id.action_firstFragment_to_secondFragment);
+//        Navigation.findNavController(getView()).navigate(R.id.action_firstFragment_to_secondFragment);
 
     }
 

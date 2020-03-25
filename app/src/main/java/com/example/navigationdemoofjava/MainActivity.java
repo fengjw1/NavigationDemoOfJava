@@ -11,6 +11,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import android.net.Uri;
@@ -38,6 +39,9 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnFr
     @BindView(R.id.toolbar)
     Toolbar toolbar;
 
+
+    AppBarConfiguration appBarConfiguration;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,14 +50,23 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnFr
 
         setSupportActionBar(toolbar);
 
-        initMenu();
-
         navController = Navigation.findNavController(this, R.id.fragment);
+        appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph())
+                        .setDrawerLayout(drawerLayout)
+                        .build();
+        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);//
+        //initMenu();
+
         NavigationView navView = findViewById(R.id.nav_view);
         NavigationUI.setupWithNavController(navView, navController);
 
         initNav();
 
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        return NavigationUI.navigateUp(Navigation.findNavController(this, R.id.fragment), appBarConfiguration);
     }
 
     private void initMenu(){
@@ -79,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnFr
         drawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
             @Override
             public void onDrawerSlide(@NonNull View drawerView, float slideOffset) {
-               LogUtils.d("onDrawerSlide");
+//               LogUtils.d("onDrawerSlide");
             }
 
             @Override
