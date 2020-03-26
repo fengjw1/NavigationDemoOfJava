@@ -132,7 +132,7 @@ public class MainFragment extends BaseFragment {
         }else {
             Log.d("fengjw", "MainFragment>>onClickFragment>>2");
             bundle.putSerializable("datas", (Serializable) BaseData.getDatas());
-            Navigation.findNavController(v).navigate(R.id.secondFragment, bundle);//通过id跳转
+            Navigation.findNavController(v).navigate(R.id.bottomNavFragmentThree, bundle);//通过id跳转
 
         }
     }

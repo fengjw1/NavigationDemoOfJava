@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnFr
             @Override
             public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
                 Log.d("fengjw", "MainFragment>>navController>>onDestinationChanged>>destination>>" + destination.getLabel());
-                if (destination.getId() == R.id.secondFragment){
+                if (destination.getId() == R.id.bottomNavFragmentThree){
                     Log.d("fengjw", "当前在second Fragment！");
                     getSupportActionBar().hide();//关闭顶部的actionbar
                 }else {
